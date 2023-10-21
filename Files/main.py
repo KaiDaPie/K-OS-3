@@ -12,7 +12,8 @@ def remove_spaces(input):
         output = input.replace(" ", "")
         return output
 
-
+def join(str1, str2):
+    return str1 + str2
 
 
 def web():
@@ -126,14 +127,17 @@ def checksum(data):
     return checksum
 
 def start(): # this took me so long to figure out, fuck you nano formatting.
+        global loggedon
+        loggedon = 0
         cls()
         print("login as "+user)
         login = input("- ")
         sum = checksum(login)
         if sum == passwd:
+                loggedon == 1
                 logon()
         else:
-                print("Incorrect.")
+                print(RED+"Incorrect."+RESET)
 
 #//ANSI escape codes to colour text
 BLACK = "\033[30m"
@@ -156,5 +160,5 @@ RESET = "\033[0m"
 
 start()
 
-if __name__ == "__main__":
+if __name__ == "__main__" and loggedon == "1":
         logon()
