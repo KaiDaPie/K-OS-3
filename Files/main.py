@@ -5,22 +5,22 @@ import importlib
 import webbrowser
 
 def cls():
-        os.system('clear')
+	os.system('clear')
 
 
 def remove_spaces(input):
-        output = input.replace(" ", "")
-        return output
+	output = input.replace(" ", "")
+	return output
 
 def join(str1, str2):
     return str1 + str2
 
 
 def web():
-        cls()
-        print("Web Browser -- K-OS 3")
-        url = input("URL: ")
-        webbrowser.open(url)
+	cls()
+	print("Web Browser -- K-OS 3")
+	url = input("URL: ")
+	webbrowser.open(url)
 
 
 def games():
@@ -68,19 +68,20 @@ def games():
 
 
 def settings():
-        cls()
-        print("Settings:")
-        print("1. Change Username")
-        print("2. Change Password")
-        selected = input("")
-        if selected == "1":
-                newuser = input("Choose a new username: ")
-                with open('username.txt', 'w') as file:
-                        file.write(newuser)
-        elif selected == "2":
-                newpass = input("Choose a new password: ")
-                with open('password.txt', 'w') as file:
-                        file.write(newpass)
+	cls()
+	print("Settings:")
+	print("1. Change Username")
+	print("2. Change Password")
+	selected = input("")
+	if selected == "1":
+		newuser = input("Choose a new username: ")
+		with open('username.txt', 'w') as file:
+			file.write(newuser)
+	elif selected == "2":
+		newpass = input("Choose a new password: ")
+		with open('password.txt', 'w') as file:
+			newpass2 = checksum(newpass)
+			file.write(newpass2)
 
 
 
@@ -88,32 +89,32 @@ def settings():
 
 #//debug code lol - ignore
 def debug():
-        data = "test"
-        hash = hashlib.sha256()
-        hash.update(data.encode('utf-8'))
-        sumpass = hash.hexdigest()
-        print(sumpass)
+	data = "test"
+	hash = hashlib.sha256()
+	hash.update(data.encode('utf-8'))
+	sumpass = hash.hexdigest()
+	print(sumpass)
 
 
 def logon():
-        # i have no idea what imma do here lol :3
-        cls()
-        print("K-OS 3")
-        print("1. Settings")
-        print("2. Games")
-        print("3. Web Browser")
-        app = input("Choose an app: ")
-        if app == "1":
-                settings()
-        elif app == "2":
-                games()
-        elif app == "3":
-                web()
-        else:
-                print("Not an option.")
+	# i have no idea what imma do here lol :3
+	cls()
+	print("K-OS 3")
+	print("1. Settings")
+	print("2. Games")
+	print("3. Web Browser")
+	app = input("Choose an app: ")
+	if app == "1":
+		settings()
+	elif app == "2":
+		games()
+	elif app == "3":
+		web()
+	else:
+		print("Not an option.")
 
 with open('password.txt', 'r') as file:
-        passwd = file.read()
+	passwd = str(file.read())
 
 with open('username.txt', 'r') as file:
     # Read the contents of the file and store it in the 'user' variable
@@ -127,17 +128,20 @@ def checksum(data):
     return checksum
 
 def start(): # this took me so long to figure out, fuck you nano formatting.
-        global loggedon
-        loggedon = 0
-        cls()
-        print("login as "+user)
-        login = input("- ")
-        sum = checksum(login)
-        if sum == passwd:
-                loggedon == 1
-                logon()
-        else:
-                print(RED+"Incorrect."+RESET)
+	global loggedon
+	loggedon = 0
+	cls()
+	print("login as "+user)
+	login = str(input("- "))
+	sum = checksum(login)
+	if sum == passwd:
+		loggedon = 1
+		logon()
+	else:
+		print(RED+"Incorrect."+RESET)
+		print(login)
+		print(passwd)
+		print(sum)
 
 #//ANSI escape codes to colour text
 BLACK = "\033[30m"
@@ -161,4 +165,4 @@ RESET = "\033[0m"
 start()
 
 if __name__ == "__main__" and loggedon == "1":
-        logon()
+	logon()
