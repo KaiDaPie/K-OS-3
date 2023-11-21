@@ -8,6 +8,13 @@ def cls():
 	os.system('clear')
 
 
+def terminal():
+	cmd = input("")
+	if not cmd == "exit" or cmd == "quit":
+		os.system(cmd)
+	logon()
+
+
 def remove_spaces(input):
 	output = input.replace(" ", "")
 	return output
@@ -99,17 +106,28 @@ def debug():
 def logon():
 	# i have no idea what imma do here lol :3
 	cls()
-	print("K-OS 3")
+	print("//K-OS 3//")
+	print("-- q/quit/exit - Quit Program --")
 	print("1. Settings")
 	print("2. Games")
 	print("3. Web Browser")
+	print("4. Terminal")
+	print("5. Text Editor")
 	app = input("Choose an app: ")
-	if app == "1":
+	if app == "q" or app == "quit" or app == "exit":
+		global quit
+		quit = 1
+	elif app == "1":
 		settings()
 	elif app == "2":
 		games()
 	elif app == "3":
 		web()
+	elif app == "4":
+		terminal()
+	elif app == "5":
+		os.system('nano')
+		logon()
 	else:
 		print("Not an option.")
 
@@ -164,5 +182,5 @@ RESET = "\033[0m"
 
 start()
 
-if __name__ == "__main__" and loggedon == "1":
+if __name__ == "__main__" and loggedon == "1" and quit == "0":
 	logon()
