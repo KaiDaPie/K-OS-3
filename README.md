@@ -1,4 +1,4 @@
-<center>#K-OS 3</center> 
+#K-OS 3 
 
 
 --About--
@@ -24,3 +24,6 @@ Youtube: youtube.com/@_KDP
 seeya later tater
 
 _(filler text here)_
+
+
+### B A L L S
