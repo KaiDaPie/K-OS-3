@@ -1,4 +1,4 @@
-<center> # K-OS-3 </center>
+# K-OS-3 
 
 --About--
 K-OS 3 is the 3rd version of K-OS, a lil project by me (aka Kai Da Pie.) 
