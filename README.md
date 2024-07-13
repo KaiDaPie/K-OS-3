@@ -7,7 +7,7 @@ K-OS 3 is the 3rd version of K-OS, a lil project by me (aka Kai Da Pie.)
 
 --Fun Facts--
 
-K-OS 3 is badly made and bug-ridden XD
+K-OS 3 is badly made and full of bugs XD
 
 K-OS 3 doesn't have many features (I'm working on it ***okey***)
 
